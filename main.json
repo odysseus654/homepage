@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "removeComments": true,
+      "outFile":"html/lib/main.js",
+      "allowJs":true,
+      "lib":[
+        "es2020",
+        "DOM"
+      ],
+      "module":"amd",
+      "target":"es6",
+      "downlevelIteration": true,
+      "importHelpers": true,
+      "incremental": true,
+      "moduleResolution": "node",
+      "types": []
+    },
+    "files":[
+      "html/ext/typescript/tslib.es6.js",
+      "html/ext/require.js",
+      "html/ext/vue-3.1.5/vue.runtime.esm-bundler.js",
+      "html/ext/quasar-2.0.3/quasar.umd.js"
+    ],
+    "include":[
+      "html/js/main/*.ts"
+    ]
+  }
