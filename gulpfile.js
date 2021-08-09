@@ -23,7 +23,8 @@ const { argv } = require('yargs');
 const webpack_config = require('./webpack.config.js');
 
 const ExtPaths = {
-    quasar: 'html/ext/quasar-2.0.3',
+    quasar: 'ext/quasar-2.0.3',
+    material_design: 'ext/material-design-icons-iconfont-6.1.0',
 //    sentry: 'html/ext/sentry-5.23.0',
 }
 
@@ -39,10 +40,12 @@ function styleSheets(cb) {
     ];
     return merge(
             merge(
-                Gulp.src(ExtPaths.quasar+'/*.css',{base:'./html'}),
+                Gulp.src('html/'+ExtPaths.quasar+'/*.css',{base:'./html'}),
+                Gulp.src('html/'+ExtPaths.material_design+'/*.css',{base:'./html'})
+                    .pipe(replace('url("./fonts/','url("../'+ExtPaths.material_design+'/')),
                 Gulp.src('html/css/*.css',{base:'./html'}),
             )
-                .pipe(Sourcemaps.init()),
+                .pipe(Sourcemaps.init({loadMaps:true})),
             Gulp.src('html/css/*.sass',{base:'./html'})
                 .pipe(Sourcemaps.init())
                 .pipe(sass().on('error', sass.logError))
@@ -78,7 +81,7 @@ function typeScriptMain(cb) {
     return merge(
 /*            merge(
                     //Gulp.src(ExtPaths.sentry+'/bundle.min.js',{base:'./html'}),
-                    Gulp.src(ExtPaths.quasar+'/vue.min.js',{base:'./html'})
+                    Gulp.src('html/'+ExtPaths.quasar+'/vue.min.js',{base:'./html'})
                 )
                 .pipe(Sourcemaps.init({loadMaps:true}))
                 .pipe(Sourcemaps.mapSources((sourcePath, file) => {
