@@ -8,7 +8,6 @@ interface PromiseConstructor {
 //declare var Promise:PromiseConstructor;
 declare var requirejs:any;
 declare var define:any;
-declare var Vue:any;
 
 /* portal.ts - Initial bootstrap of the main interface */
 (function(global:typeof globalThis) {
@@ -39,21 +38,20 @@ declare var Vue:any;
 	function loadScript(url:string) : Promise<void>
 	{
 		return new Promise((resolve:()=>void, reject:(e:any)=>void) => {
-			let script = <HTMLScriptElement>document.createElement('SCRIPT');
+			const script = <HTMLScriptElement>document.createElement('SCRIPT');
 			script.setAttribute('type', 'text/javascript');
 			script.setAttribute('src', url);
 			
-			function resetCallbacks()
-			{
+			// way too many different ways that browsers do callbacks...
+			const oldOnload = script.onload;
+			const oldOnerror = script.onerror;
+			const oldOnreadystatechange = (script as any).onreadystatechange;
+			
+			function resetCallbacks() {
 				script.onload = oldOnload;
 				script.onerror = oldOnerror;
 				(script as any).onreadystatechange = oldOnreadystatechange;
 			}
-			
-			// way too many different ways that browsers do callbacks...
-			var oldOnload = script.onload;
-			var oldOnerror = script.onerror;
-			var oldOnreadystatechange = (script as any).onreadystatechange;
 			
 			script.onload = () => {
 				resolve();
@@ -87,21 +85,21 @@ declare var Vue:any;
 	{
 		if(!HEAD_OBJECT)
 		{
-			var headObjs = document.getElementsByTagName('HEAD');
+			const headObjs = document.getElementsByTagName('HEAD');
 			HEAD_OBJECT = <HTMLHeadElement|null>(headObjs?.length && headObjs[0]);
 			if(!HEAD_OBJECT){debugger; return null;}
 		}
 		return HEAD_OBJECT;
 	}
 
-	let STYLES_LOADED : {[key:string]:boolean} = {};
+	const STYLES_LOADED : {[key:string]:boolean} = {};
 	function loadStyle(url:string)
 	{
 		if(STYLES_LOADED[url]) return;
 		const headObj = getHead();
 		if(!headObj){debugger; return;}
 		
-		let newUrl = url;
+		const newUrl = url;
 		//if(newUrl.indexOf('?') == -1) newUrl += '?' + Date.now();
 		const style = <HTMLLinkElement>document.createElement('LINK');
 		style.setAttribute('rel', 'stylesheet');
@@ -112,11 +110,17 @@ declare var Vue:any;
 	}
 
 	function startupRequireJs() {
-		define('@globals', [], {}); // dummy module for storing shared values
-		define('vue', [], () => { return {default:(<any>global).Vue}; }); // ignore, Vue is a global
+		// create aliases for resolving dependencies
+		define('tslib', ['tslib/tslib.es6'], (lib:any) => lib);
+		define('vue', ['ext/vue-3.1.5/vue.runtime.esm-bundler'], (lib:any) => lib);
+		define('@vue/shared', ['@vue/shared/dist/shared.esm-bundler'], (lib:any) => lib);
+		define('@vue/reactivity', ['@vue/reactivity/dist/reactivity.esm-bundler'], (lib:any) => lib);
+		define('@vue/runtime-core', ['@vue/runtime-core/dist/runtime-core.esm-bundler'], (lib:any) => lib);
+		define('@vue/runtime-dom', ['@vue/runtime-dom/dist/runtime-dom.esm-bundler'], (lib:any) => lib);
 
 		// define dummy type definitions that are apparently being requested by the main script
-		define('js/types/event-emitter', [], () => { return {EventEmitter:EventEmitter}; });
+
+		//define('js/types/event-emitter', [], () => { return {EventEmitter:EventEmitter}; });
 
 		requirejs.config({});
 	}
@@ -175,6 +179,8 @@ declare var Vue:any;
 		console.error("[Vue warn]: " + msg + trace);
 	}
 */
+	const vueComponents : {name:string,value:object}[] = [];
+
 	function beginLoad() {
 		const messageText = document.getElementById('initialProgressMsg');
 		if(messageText) messageText.textContent = 'Please wait...';
@@ -187,13 +193,14 @@ declare var Vue:any;
 		
 		const loadTimer = window.setTimeout(loadTimeout, 30000);
 		loadStyle('lib/main.css');
-		loadScript('lib/main.js')
+		loadScript('lib/node.js')
+			.then(() => loadScript('lib/main.js'))
 			.then(() => {
 				const oldDefine = define;
-				var pendingComponents : string[]|null = null;
+				let pendingComponents : string[]|null = null;
 
 				define = function(this:any, name:string) {
-					var ret = oldDefine.apply(this, arguments);
+					const ret = oldDefine.apply(this, arguments);
 					if(name.match(/^vue\//)) {
 						if(pendingComponents) {
 							pendingComponents.push(name);
@@ -206,29 +213,30 @@ declare var Vue:any;
 				}
 
 				function declareVueComponents() {
-					if(!pendingComponents) { debugger; return; } // shouldn't happen
-					let thisPass = pendingComponents;
+					if(!pendingComponents) return; // shouldn't happen
+					const thisPass = pendingComponents;
 					pendingComponents = null;
 
 					requirejs(thisPass, function() {
-						let len = thisPass.length;
+						const len = thisPass.length;
 						for(let idx=0; idx < len; idx++) {
-							let componentMatch = thisPass[idx].match(/^vue\/(.+)$/);
+							const componentMatch = thisPass[idx].match(/^vue\/(.+)$/);
 							if(componentMatch) {
-								Vue.component(componentMatch[1], arguments[idx].default);
+								vueComponents.push({name:componentMatch[1], value:arguments[idx].default});
 							}
 						}
 					});
 				}
 
-				return loadScript('lib/vue.js');
+				return loadScript('lib/vue.js')
+					.then(() => { declareVueComponents() });
 			})
 			.then(() => {
 				// initialize RequireJS and transfer control to the main script area
 				startupRequireJs();
 				requirejs(
-					['@globals','js/main/init'],
-					($Globals:any, init:any) =>
+					['js/main/init'],
+					(init:any) =>
 				{
 /*
 					if('Sentry' in global) {
@@ -248,7 +256,7 @@ declare var Vue:any;
 					if(messageText) {
 						messageText.textContent='';
 					}
-					init.init();
+					init.init(vueComponents);
 				});
 			})
 			.catch((reason:any) => {

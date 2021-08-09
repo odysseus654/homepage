@@ -2,6 +2,7 @@
     "compilerOptions": {
       "strict": true,
       "strictPropertyInitialization": false,
+      "noImplicitAny": false,
       "removeComments": true,
       "outFile":"html/lib/shell.js",
       "allowJs":true,
@@ -10,6 +11,9 @@
       "incremental": true,
       "types": []
     },
+    "files":[
+      "html/ext/require.js"
+    ],
     "include":[
       "html/js/shell/*.ts"
     ]

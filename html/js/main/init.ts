@@ -2,14 +2,22 @@
 
 manages main startup of the site */
 import * as Vue from '../../ext/vue-3.1.5/vue.runtime.esm-bundler';
-declare var Quasar : any;
+import * as Quasar from '../../ext/quasar-2.0.3/quasar.umd';
 
-export function init() {
+export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 	const app : Vue.App<Element> = Vue.createApp({
 		setup () {
 			return {};
 		},
 	});
+	{
+		const len = vueComponents.length;
+		for(let idx=0; idx < len; idx++) {
+			const entry = vueComponents[idx];
+			app.component(entry.name, entry.value);
+		}
+	}
+	debugger;
 
 	app.use(Quasar, {
 		config: {

@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "removeComments": true,
+      "outFile":"html/lib/node.js",
+      "allowJs":true,
+      "lib":[
+        "es2020",
+        "DOM"
+      ],
+      "module":"amd",
+      "target":"es6",
+      "downlevelIteration": true,
+      "importHelpers": true,
+      "incremental": true,
+      "moduleResolution": "node",
+      "types": [],
+      "rootDir": "node_modules"
+    },
+    "files":[
+      "node_modules/tslib/tslib.es6.js",
+      "node_modules/@vue/shared/dist/shared.esm-bundler.js",
+      "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js",
+      "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js"
+    ]
+  }

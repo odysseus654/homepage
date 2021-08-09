@@ -18,8 +18,6 @@
       "types": []
     },
     "files":[
-      "html/ext/typescript/tslib.es6.js",
-      "html/ext/require.js",
       "html/ext/vue-3.1.5/vue.runtime.esm-bundler.js",
       "html/ext/quasar-2.0.3/quasar.umd.js"
     ],

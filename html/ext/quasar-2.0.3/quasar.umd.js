@@ -6,7 +6,7 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('vue')) :
-    typeof define === 'function' && define.amd ? define(['vue'], factory) :
+    typeof define === 'function' && define.amd ? define('ext/quasar-2.0.3/quasar.umd', ['vue'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Quasar = factory(global.Vue));
   }(this, (function (vue) { 'use strict';
   

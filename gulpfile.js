@@ -100,6 +100,23 @@ function typeScriptMain(cb) {
         .pipe(Gulp.dest('./'));
 }
 
+function typeScriptNode(cb) {
+    const tsProject = Typescript.createProject('node.json');
+    return tsProject.src()
+        .pipe(Sourcemaps.init({loadMaps:true}))
+        .pipe(envify({NODE_ENV:ENVIRONMENT}))
+        .pipe(tsProject()).js
+        .pipe(Sourcemaps.mapSources((sourcePath, file) => {
+            const strip = sourcePath.match(/^node_modules\/(.+)$/);
+            if(strip) sourcePath = '../' + strip[1];
+            return sourcePath;
+        }))
+        .pipe(concat('html/lib/node.js'))
+        .pipe(terser({compress:{drop_debugger:false}}))
+        .pipe(Sourcemaps.write('./'))
+        .pipe(Gulp.dest('./'));
+}
+
 function webpackTask(cb) {
     return Gulp.src('html/vue/*',{base:'./html'})
         .pipe(named())
@@ -131,43 +148,45 @@ function awsPublish(cb) {
         {
             region: "us-east-1",
             params: {
-                Bucket: "heath-distrib"
+                Bucket: "heath-homepage"
             }
         }
     );
 
     const cfSettings = {
-        distribution: 'E2KHBKLSIU4UXQ', // Cloudfront distribution ID
-        originPath: '/app',             // Configure OriginPath to be removed of file path to invalidation
+        distribution: 'E2ZTKQKOIBKC7W', // Cloudfront distribution ID
+        originPath: '/root',            // Configure OriginPath to be removed of file path to invalidation
         indexRootPath: true             // Invalidate index.html root paths (`foo/index.html` and `foo/`) (default: false)
       };
       
       return merge(
             typeScriptShell(cb),
+            typeScriptNode(cb),
             typeScriptMain(cb),
             styleSheets(cb),
             webpackTask(cb),
             Gulp.src('html/*',{base:'./html'}),
             //Gulp.src('html/images/*',{base:'./html'}),
             Gulp.src('html/ext/material-design-icons-iconfont-6.1.0/*',{base:'./html'}),
-            Gulp.src('html/ext/LZMA-JS-2.3.0/lzma_worker*.js',{base:'./html'}),
-            Gulp.src('html/ext/lzma2-js-dbe9e72/lzma2_worker*.js',{base:'./html'}),
+            //Gulp.src('html/ext/LZMA-JS-2.3.0/lzma_worker*.js',{base:'./html'}),
+            //Gulp.src('html/ext/lzma2-js-dbe9e72/lzma2_worker*.js',{base:'./html'}),
         )
         .pipe(rename(function(path) {
             path.dirname = path.dirname.replace(/^html[\\\/]?/, '');
-            path.dirname = (path.dirname ? 'app/' : 'app') + path.dirname;
+            path.dirname = (path.dirname ? 'root/' : 'root') + path.dirname;
         }))
         .pipe(AwsPublish.gzip({smaller:true}))
         .pipe(parallelize(publisher.publish({})))
         .pipe(cfInvalidate(cfSettings))
 //        .pipe(publisher.cache())
-        .pipe(publisher.sync('app/'))
+        .pipe(publisher.sync('root/'))
         .pipe(AwsPublish.reporter());
 }
 
-exports.default = Gulp.parallel(typeScriptShell, typeScriptMain, styleSheets, webpackTask);
+exports.default = Gulp.parallel(typeScriptShell, typeScriptNode, typeScriptMain, styleSheets, webpackTask);
 exports.publish = awsPublish;
 exports.shell = typeScriptShell;
 exports.main = typeScriptMain;
+exports.node = typeScriptNode;
 exports.stylesheets = styleSheets;
 exports.webpack = webpackTask;
