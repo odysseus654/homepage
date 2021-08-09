@@ -2,20 +2,19 @@
     "compilerOptions": {
       "strict": true,
       "strictPropertyInitialization": false,
-      "noImplicitAny": false,
       "removeComments": true,
-      "outFile":"html/lib/shell.js",
       "allowJs":true,
+      "lib":[
+        "es2020",
+        "DOM"
+      ],
       "target":"es6",
       "downlevelIteration": true,
+      "importHelpers": true,
       "incremental": true,
+      "moduleResolution": "node",
       "types": [],
-      "rootDir": "html"
-    },
-    "files":[
-      "html/ext/require.js"
-    ],
-    "include":[
-      "html/js/shell/*.ts"
-    ]
-  }
+      "sourceMap": true,
+      "jsx": "preserve"
+    }
+}

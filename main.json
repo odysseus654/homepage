@@ -15,7 +15,8 @@
       "importHelpers": true,
       "incremental": true,
       "moduleResolution": "node",
-      "types": []
+      "types": [],
+      "rootDir": "html"
     },
     "files":[
       "html/ext/vue-3.1.5/vue.runtime.esm-bundler.js",

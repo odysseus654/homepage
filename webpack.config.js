@@ -30,6 +30,9 @@ module.exports = {
         },    
         devtoolFallbackModuleFilenameTemplate: 'webpack:///[resource-path]?[hash]', 
     },
+    "externals": {
+        "vue": "amd vue"
+    },
     "module": {
         "rules": [
             /*{
@@ -127,11 +130,13 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.tsx$/,
+                test: /\.tsx?$/,
                 use: {
                     loader: 'ts-loader',
                     options: {
-                        appendTsSuffixTo: [/\.vue$/]
+                        appendTsSuffixTo: [/\.vue$/],
+                        configFile: 'vue.json',
+                        onlyCompileBundledFiles: true
                     }
                 },
                 exclude: /node_modules/

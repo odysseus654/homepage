@@ -5,11 +5,22 @@ import * as Vue from '../../ext/vue-3.1.5/vue.runtime.esm-bundler';
 import * as Quasar from '../../ext/quasar-2.0.3/quasar.umd';
 
 export function init(vueComponents:{name:string,value:Vue.Component}[]) {
-	const app : Vue.App<Element> = Vue.createApp({
-		setup () {
-			return {};
-		},
-	});
+	// yay we have to have the root layout available before initializing the app?!?
+	let rootLayout : Vue.Component|undefined;
+
+	{
+		const len = vueComponents.length;
+		for(let idx=0; idx < len; idx++) {
+			const entry = vueComponents[idx];
+			if(entry.name == 'layout') {
+				rootLayout = entry.value;
+				break;
+			}
+		}
+	}
+
+	const app : Vue.App<Element> = Vue.createApp(rootLayout!);
+
 	{
 		const len = vueComponents.length;
 		for(let idx=0; idx < len; idx++) {
@@ -17,6 +28,7 @@ export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 			app.component(entry.name, entry.value);
 		}
 	}
+
 	debugger;
 
 	app.use(Quasar, {
@@ -33,5 +45,8 @@ export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 			*/
 		},
 	});
-	app.mount('#bodyContents');
+
+	const bodyContents = document.getElementById('bodyContents')!;
+	bodyContents.style.display = 'block';
+	app.mount(bodyContents);
 }

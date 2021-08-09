@@ -105,6 +105,8 @@ function typeScriptNode(cb) {
     return tsProject.src()
         .pipe(Sourcemaps.init({loadMaps:true}))
         .pipe(envify({NODE_ENV:ENVIRONMENT}))
+        .pipe(replace('__VUE_OPTIONS_API__', 'true'))
+        .pipe(replace('__VUE_PROD_DEVTOOLS__', (ENVIRONMENT!='production')?'true':'false'))
         .pipe(tsProject()).js
         .pipe(Sourcemaps.mapSources((sourcePath, file) => {
             const strip = sourcePath.match(/^node_modules\/(.+)$/);
