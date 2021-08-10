@@ -25,6 +25,8 @@ const webpack_config = require('./webpack.config.js');
 const ExtPaths = {
     quasar: 'ext/quasar-2.0.3',
     material_design: 'ext/material-design-icons-iconfont-6.1.0',
+    fontawesome_css: 'ext/fontawesome-free-5.15.4-web/css',
+    fontawesome_webfonts: 'ext/fontawesome-free-5.15.4-web/webfonts',
 //    sentry: 'html/ext/sentry-5.23.0',
 }
 
@@ -63,9 +65,13 @@ function styleSheets(cb) {
                 Gulp.src('html/'+ExtPaths.quasar+'/*.css',{base:'./html'}),
                 Gulp.src('html/'+ExtPaths.material_design+'/*.css',{base:'./html'})
                     .pipe(replace('url("./fonts/','url("../'+ExtPaths.material_design+'/')),
+                merge(
+                    Gulp.src('html/'+ExtPaths.fontawesome_css+'/fontawesome.css',{base:'./html'}),
+                    Gulp.src('html/'+ExtPaths.fontawesome_css+'/brands.css',{base:'./html'}),
+                ).pipe(replace('url("../webfonts/','url("../'+ExtPaths.fontawesome_webfonts+'/')),
                 Gulp.src('html/css/*.css',{base:'./html'}),
             )
-                .pipe(Sourcemaps.init({loadMaps:true})),
+                .pipe(Sourcemaps.init()),
             Gulp.src('html/css/*.sass',{base:'./html'})
                 .pipe(Sourcemaps.init())
                 .pipe(sass().on('error', sass.logError))
@@ -194,8 +200,10 @@ function awsPublish(cb) {
             webpackTask(cb),
             Gulp.src('html/*',{base:'./html'}),
             //Gulp.src('html/images/*',{base:'./html'}),
-            Gulp.src('html/ext/material-design-icons-iconfont-6.1.0/*',{base:'./html'})
-                .pipe(setHeader('Cache-Control', 'max-age=2592000, public')),
+            merge(
+                Gulp.src('html/'+ExtPaths.material_design+'/*',{base:'./html'}),
+                Gulp.src('html/'+ExtPaths.fontawesome_webfonts+'/*',{base:'./html'})
+            ).pipe(setHeader('Cache-Control', 'max-age=2592000, public')),
             //Gulp.src('html/ext/LZMA-JS-2.3.0/lzma_worker*.js',{base:'./html'}),
             //Gulp.src('html/ext/lzma2-js-dbe9e72/lzma2_worker*.js',{base:'./html'}),
         )

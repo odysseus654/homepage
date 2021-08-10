@@ -1,11 +1,14 @@
+fontawesome-free (v5.15.4) - Icon set <https://fontawesome.com/>
+    FontAwesome Free License <https://fontawesome.com/license/free>
+
 material-design-icons-iconfont (v6.1.0) - Icon set <https://github.com/jossef/material-design-icons-iconfont>
     Apache2 license <https://github.com/jossef/material-design-icons-iconfont/blob/master/LICENSE>
 
-Quasar (2.0.3) - UI Components <https://quasar.dev/>
-    MIT license <https://github.com/quasarframework/quasar/blob/dev/LICENSE>
-
 require.js / require-min.js (2.3.6) - RequireJS <https://requirejs.org/docs/download.html>
     MIT license <https://github.com/requirejs/requirejs/blob/master/LICENSE>
+
+Quasar (2.0.3) - UI Components <https://quasar.dev/>
+    MIT license <https://github.com/quasarframework/quasar/blob/dev/LICENSE>
 
 Vue.js (3.1.5) - DOM framework <https://vuejs.org/>
     MIT license <https://github.com/vuejs/vue/blob/dev/LICENSE>
