@@ -1,11 +1,3 @@
-/// <reference path="../../ext/event-emitter.ts"/>
-/*
-interface PromiseConstructor {
-	new(executor: (resolve: (value?: void|PromiseLike<void>) => void, reject: (reason?:any) => void) => void) : Promise<void>
-}
-*/
-
-//declare var Promise:PromiseConstructor;
 declare var requirejs:any;
 declare var define:any;
 
@@ -119,8 +111,6 @@ declare var define:any;
 		define('@vue/runtime-dom', ['@vue/runtime-dom/dist/runtime-dom.esm-bundler'], (lib:any) => lib);
 
 		// define dummy type definitions that are apparently being requested by the main script
-
-		//define('js/types/event-emitter', [], () => { return {EventEmitter:EventEmitter}; });
 
 		requirejs.config({});
 	}

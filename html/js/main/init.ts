@@ -20,6 +20,12 @@ export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 	}
 
 	const app : Vue.App<Element> = Vue.createApp(rootLayout!);
+	{
+		const global = (window as Record<string,any>);
+		if('__VUE_DEVTOOLS_GLOBAL_HOOK__' in global) {
+			global.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app;
+		}
+	}
 
 	{
 		const len = vueComponents.length;
@@ -28,8 +34,6 @@ export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 			app.component(entry.name, entry.value);
 		}
 	}
-
-	debugger;
 
 	app.use(Quasar, {
 		config: {
@@ -46,7 +50,10 @@ export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 		},
 	});
 
-	const bodyContents = document.getElementById('bodyContents')!;
+	const loadingDiv = document.getElementById('initial') as HTMLDivElement;
+	if(loadingDiv) loadingDiv.parentElement!.removeChild(loadingDiv);
+
+	const bodyContents = document.getElementById('bodyContents')! as HTMLDivElement;
 	bodyContents.style.display = 'block';
 	app.mount(bodyContents);
 }

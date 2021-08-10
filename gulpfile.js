@@ -32,6 +32,26 @@ const DEFAULT_BUILD = 'development';
 const ENVIRONMENT = argv.build || DEFAULT_BUILD;
 webpack_config.mode = ENVIRONMENT;
 
+// set an S3 header for the files in the requested stream
+function setHeader(name, value, ifUnset) {
+    function initFile(file) {
+        // init Vinyl file file object's s3 hash
+        if (!file.s3) {
+            file.s3 = {};
+            file.s3.headers = {};
+            file.s3.path = file.relative.replace(/\\/g, '/');
+        }
+        return file;
+    }
+
+    return Through.obj(function(file,enc,cb) {
+        initFile(file);
+        if(!ifUnset || !(name in file.s3.headers)) file.s3.headers[name] = value;
+        this.push(file);
+        cb();
+    });
+}
+
 function styleSheets(cb) {
     const plugins = [
         postcss_discardComments(),
@@ -134,6 +154,7 @@ function webpackTask(cb) {
             if(baseName) return baseName[1];
             return this.file.relative;
         }))
+        .pipe(replace('__UPDATE_TIME__', (new Date()).toString()))
         .pipe(Sourcemaps.init({loadMaps:true}))
         .pipe(Through.obj(function(file,enc,cb) {
             // Dont pipe through any source map files as it will be handled
@@ -168,18 +189,31 @@ function awsPublish(cb) {
             typeScriptShell(cb),
             typeScriptNode(cb),
             typeScriptMain(cb),
-            styleSheets(cb),
+            styleSheets(cb)
+                .pipe(setHeader('Cache-Control', 'max-age=2592000, public')),
             webpackTask(cb),
             Gulp.src('html/*',{base:'./html'}),
             //Gulp.src('html/images/*',{base:'./html'}),
-            Gulp.src('html/ext/material-design-icons-iconfont-6.1.0/*',{base:'./html'}),
+            Gulp.src('html/ext/material-design-icons-iconfont-6.1.0/*',{base:'./html'})
+                .pipe(setHeader('Cache-Control', 'max-age=2592000, public')),
             //Gulp.src('html/ext/LZMA-JS-2.3.0/lzma_worker*.js',{base:'./html'}),
             //Gulp.src('html/ext/lzma2-js-dbe9e72/lzma2_worker*.js',{base:'./html'}),
         )
+
         .pipe(rename(function(path) {
             path.dirname = path.dirname.replace(/^html[\\\/]?/, '');
             path.dirname = (path.dirname ? 'root/' : 'root') + path.dirname;
         }))
+        .pipe(Through.obj(function(file,enc,cb) {
+            if (file.s3) {
+                const path = file.s3.path.replace(/^html[\\\/]?/, '');
+                file.s3.path = (path ? 'root/' : 'root') + path;
+            }
+            this.push(file);
+            cb();
+        }))
+
+        .pipe(setHeader('Cache-Control', 'max-age=3600, public', true))
         .pipe(AwsPublish.gzip({smaller:true}))
         .pipe(parallelize(publisher.publish({})))
         .pipe(cfInvalidate(cfSettings))
