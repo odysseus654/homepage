@@ -19,13 +19,13 @@
             much better job of that than I could.
         </p>
         <p>
-            <a class="img-link" href="https://www.facebook.com/profile.php?id=1028454371">
+            <a class="img-link" href="https://www.facebook.com/profile.php?id=1028454371" target="_blank">
                 <q-icon class="q-pa-sm" color="primary" size="96px" name="fab fa-facebook" />
             </a>
-            <a class="img-link" href="https://www.linkedin.com/in/handerson1/">
+            <a class="img-link" href="https://www.linkedin.com/in/handerson1/" target="_blank">
                 <q-icon class="q-pa-sm" color="primary" size="96px" name="fab fa-linkedin" />
             </a>
-            <a class="img-link" href="https://github.com/odysseus654">
+            <a class="img-link" href="https://github.com/odysseus654" target="_blank">
                 <q-icon class="q-pa-sm" color="primary" size="96px" name="fab fa-github" />
             </a>
         </p>

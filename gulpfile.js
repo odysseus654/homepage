@@ -196,14 +196,14 @@ function awsPublish(cb) {
             typeScriptNode(cb),
             typeScriptMain(cb),
             styleSheets(cb)
-                .pipe(setHeader('Cache-Control', 'max-age=2592000, public')),
+                .pipe(setHeader('Cache-Control', 'max-age=31536000, public')),
             webpackTask(cb),
             Gulp.src('html/*',{base:'./html'}),
             //Gulp.src('html/images/*',{base:'./html'}),
             merge(
                 Gulp.src('html/'+ExtPaths.material_design+'/*',{base:'./html'}),
                 Gulp.src('html/'+ExtPaths.fontawesome_webfonts+'/*',{base:'./html'})
-            ).pipe(setHeader('Cache-Control', 'max-age=2592000, public')),
+            ).pipe(setHeader('Cache-Control', 'max-age=31536000, public')),
             //Gulp.src('html/ext/LZMA-JS-2.3.0/lzma_worker*.js',{base:'./html'}),
             //Gulp.src('html/ext/lzma2-js-dbe9e72/lzma2_worker*.js',{base:'./html'}),
         )
