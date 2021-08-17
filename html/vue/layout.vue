@@ -22,17 +22,17 @@ DIV.q-list.page-select {
         </q-header>
 
         <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-            <q-list class="page-select q-pt-md">
-                <q-item :clickable="currentPage!='main'" :v-ripple="currentPage!='main'" @click.stop="currentPage='main'">
+            <q-list class="page-select q-pt-md non-selectable">
+                <q-item :clickable="currentPage!='main'" v-ripple @click.stop="currentPage='main'">
                     <q-item-section :class="currentPage=='main'?'text-primary':''">Main Page</q-item-section>
                 </q-item>
-                <q-item :clickable="currentPage!='projects'" :v-ripple="currentPage!='projects'" @click.stop="currentPage='projects'">
+                <q-item :clickable="currentPage!='projects'" v-ripple @click.stop="currentPage='projects'">
                     <q-item-section :class="currentPage=='projects'?'text-primary':''">Projects</q-item-section>
                 </q-item>
-                <q-item :clickable="currentPage!='interests'" :v-ripple="currentPage!='interests'" @click.stop="currentPage='interests'">
+                <q-item :clickable="currentPage!='interests'" v-ripple @click.stop="currentPage='interests'">
                     <q-item-section :class="currentPage=='interests'?'text-primary':''">Interests</q-item-section>
                 </q-item>
-                <q-item :clickable="currentPage!='teamwork'" :v-ripple="currentPage!='teamwork'" @click.stop="currentPage='teamwork'">
+                <q-item :clickable="currentPage!='teamwork'" v-ripple @click.stop="currentPage='teamwork'">
                     <q-item-section :class="currentPage=='teamwork'?'text-primary':''">TeamWork</q-item-section>
                 </q-item>
             </q-list>

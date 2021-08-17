@@ -47,7 +47,7 @@ SPAN.date {
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5"><a href="https://www.elitedangerous.com/" target="_blank">Elite:Dangerous</a></div>
+                <div class="text-h5"><a href="https://www.elitedangerous.com/" target="_blank">Elite: Dangerous</a></div>
                 <span class="date">(2019-2021)</span>
             </q-card-section>
             <q-card-section>
@@ -67,10 +67,37 @@ SPAN.date {
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">Amateur Radio</div><span class="date">(2008-2018)</span>
+                <div class="text-h5">Amateur Radio</div>
+                <span class="date">(2008-2018)</span>
             </q-card-section>
             <q-card-section>
-                text
+                <p>
+                    I had been curious about amateur radio for a number of years (there was someone with a radio that would go to a science-fiction
+                    group I was a part of) but for a long time I didn't really know how to "get into" the program.  Eventually I found a group and
+                    figured out how to get my license.  I was easily known in the group for my computer knowledge, and while much of that did crossover
+                    into knowing how radios work a lot of it didn't; I remember being frustrated trying to figure out what a "power supply" was,
+                    the closest answer I got was instructions from one person on how to build one from a microwave oven.
+                </p>
+                <p>
+                    I quickly realized that once I had a license, the best way to actually make use of it was to join an ECOMM (Emergency Communications)
+                    group.  These groups consisted of amateur radio operators working with the local police, sheriff, Red Cross, or other agency
+                    to both provide communication during events and train for helping out in disasters.  I did help out a number of years with
+                    <a href="https://skitosea.com/" target="_blank">SkiToSea</a>, in a number of races, and events that required coordination of cars
+                    and people.
+                </p>
+                <p>
+                    At the same time I got increasingly interested in the <a href="https://openhpsdr.org/" target="_blank">HPSDR</a> project, where
+                    a radio could be built that grabs a huge chunk of the radio spectrum and permits a swath of it to be interpreted and understood
+                    by software.  The ability to take a frequency block and take it apart and see how it ticks, the ability to put a radio together
+                    inside a computer by dragging the equivalent of a flowchart together, was very appealing to me.  I did end up getting the parts
+                    for a basic SDR capable of receiving all frequencies below 65 MHz (and some of the pieces required to transmit) and worked to
+                    get a relatively "mobile" setup running with my netbook at the time.  I'm thinking in retrospective that my biggest limitation
+                    was the lack of knowledge of how radios (and avoiding interference) works, and also a lack of time to dedicate to working on the
+                    project.
+                </p>
+                <p>
+
+                </p>
             </q-card-section>
         </q-card>
 
@@ -118,7 +145,23 @@ SPAN.date {
             </q-card-section>
             <q-card-section>
                 <p>
-
+                    I don't have strong knowledge of when I started focusing on Cyan, I know I played their game 
+                    <a href="https://en.wikipedia.org/wiki/Myst" target="_blank">Myst</a> early in school and was very much into a similar (but less well-known)
+                    later game named <a href="http://obsidian.internetwhiteknight.com/" target="_blank">Obsidian</a>. When Myst's sequel
+                    <a href="https://en.wikipedia.org/wiki/Riven" target="_blank">Riven</a> came out I started participating more on message boards with 
+                    other players, exploring the world they built and the philosophical questions it raised.
+                </p>
+                <p>
+                    When Cyan started putting together <a href="https://archive.guildofarchivists.org/wiki/Uru:_Ages_Beyond_Myst" target="_blank">an MMORPG based on Myst</a>
+                    (and renamed themselves <a href="https://youtu.be/ob2Unym9nUQ" target="_blank">"Cyan Worlds"</a>), I was excited and my online involvement
+                    led to my being invited to both the closed alpha and beta for the game.  Unfortunately the publisher Cyan was working with shut the servers
+                    down before the product released due to a lack of enough interest in the game and it was eventually released as a standalone game.
+                </p>
+                <p>
+                    I did play the standalone game (and the puzzles I tested previously, now modified to work for a single player) and also hung around in "the Cavern"
+                    on multiplayer servers where they could be found (either ran by the publisher or directly by Cyan, I don't remember but more likely the latter).
+                    I was likely somewhat disillusioned by the failure and stagnation of the project and lured away to Second Life about this point with its promise
+                    of allowing me to create my own <a href="https://dni.fandom.com/wiki/Age" target="_blank">"Ages"</a>.
                 </p>
             </q-card-section>
         </q-card>
