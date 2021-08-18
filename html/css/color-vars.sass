@@ -1,0 +1,55 @@
+@use "sass:color"
+
+$color-body-light-text: #333
+$color-body-light-bg: #fff
+
+$color-primary: #1976d2
+$color-secondary: #26a69a
+$color-accent: #9c27b0
+$color-positive: #21ba45
+$color-negative: #c10015
+$color-info: #31ccec
+$color-warning: #f2c037
+$color-dark: #1d1d1d
+
+//$color-activelink: #f00
+$color-link-light: #00e
+$color-link-dark: change-color($color-link-light, $lightness: (100% - lightness($color-link-light)))
+$color-visitedlink-light: #551a8b
+$color-visitedlink-dark: change-color($color-visitedlink-light, $lightness: (100% - lightness($color-visitedlink-light)))
+
+$color-primary-text: #fff
+$color-secondary-text: #fff
+$color-accent-text: #fff
+$color-positive-text: #fff
+$color-negative-text: #fff
+$color-info-text: #fff
+$color-warning-text: #fff
+$color-dark-text: #fff
+@if lightness($color-primary) > 50%
+    $color-primary-text: #000
+@if lightness($color-secondary) > 50%
+    $color-secondary-text: #000
+@if lightness($color-accent) > 50%
+    $color-accent-text: #000
+@if lightness($color-positive) > 50%
+    $color-positive-text: #000
+@if lightness($color-negative) > 50%
+    $color-negative-text: #000
+@if lightness($color-info) > 50%
+    $color-info-text: #000
+@if lightness($color-warning) > 50%
+    $color-warning-text: #000
+@if lightness($color-dark) > 50%
+    $color-dark-text: #000
+
+// shade corresponding to bg-grey-8
+$color-back-shade-60-light: mix(#fff, #000, 40%)
+$color-back-shade-60-dark: mix(#000, #fff, 40%)
+
+$color-back-shade-60-light-text: #fff
+$color-back-shade-60-dark-text: #fff
+@if lightness($color-back-shade-60-light) > 50%
+    $color-back-shade-60-light-text: #000
+@if lightness($color-back-shade-60-dark) > 50%
+    $color-back-shade-60-dark-text: #000

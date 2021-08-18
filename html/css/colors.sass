@@ -1,0 +1,202 @@
+@import "./color-vars.sass"
+@use "sass:color"
+
+%light-text
+    color: $color-body-light-text !important
+%light-text :link
+    color: $color-link-light !important
+%light-text :visited
+    color: $color-visitedlink-light !important
+%light-text :any-link:hover
+    color: #f00 !important
+%light-text :any-link:active
+    color: #f00 !important
+
+%dark-text
+    color: $color-dark-text !important
+    color: var(--color-dark-text) !important
+%dark-text :link
+    color: $color-link-dark !important
+%dark-text :visited
+    color: $color-visitedlink-dark !important
+%dark-text :any-link:hover
+    color: #f00 !important
+%dark-text :any-link:active
+    color: #f00 !important
+
+@function text-styles($color)
+    @if lightness($color) > 50%
+        @return '%light-text'
+    @else
+        @return '%dark-text'
+
+BODY.body--light
+    color: $color-body-light-text !important
+
+[dir] BODY.body--light
+    background-color: $color-body-light-bg !important
+
+BODY.body--light .text-default
+    @extend %light-text
+
+[dir] BODY.body--light .bg-default
+    background-color: $color-body-light-bg !important
+
+[dir] BODY.body--light .bg-default-text
+    background-color: $color-body-light-text !important
+
+BODY.body--dark
+    @extend %dark-text
+
+[dir] BODY.body--dark
+    background-color: $color-dark !important
+    background-color: var(--q-color-dark) !important
+
+BODY.body--dark .text-default
+    @extend %dark-text
+
+[dir] BODY.body--dark .bg-default
+    background-color: $color-dark !important
+    background-color: var(--q-color-dark) !important
+
+[dir] BODY.body--dark .bg-default-text
+    background-color: $color-dark-text !important
+    background-color: var(--color-dark-text) !important
+
+BODY.body--light .border-default
+    border-color: $color-body-light-text !important
+BODY.body--dark .border-default
+    border-color: $color-dark-text !important
+    border-color: var(--color-dark-text) !important
+
+.text-dark
+    @extend %dark-text
+
+[dir] .bg-dark
+    background-color: $color-dark !important
+    background-color: var(--q-color-dark) !important
+
+.bg-dark
+    @extend %dark-text
+
+.text-primary
+    color: $color-primary !important
+    color: var(--q-color-primary) !important
+
+[dir] .bg-primary
+    background-color: $color-primary !important
+    background-color: var(--q-color-primary) !important
+
+.bg-primary
+    color: $color-primary-text
+    color: var(--color-primary-text)
+
+.text-secondary
+    color: $color-secondary !important
+    color: var(--q-color-secondary) !important
+
+[dir] .bg-secondary
+    background-color: $color-secondary !important
+    background-color: var(--q-color-secondary) !important
+
+.bg-secondary
+    color: $color-secondary-text
+    color: var(--color-secondary-text)
+
+.text-accent
+    color: $color-accent !important
+    color: var(--q-color-accent) !important
+
+[dir] .bg-accent
+    background-color: $color-accent !important
+    background-color: var(--q-color-accent) !important
+
+.bg-accent
+    color: $color-accent-text
+    color: var(--color-accent-text)
+    
+.text-positive
+    color: $color-positive !important
+    color: var(--q-color-positive) !important
+
+[dir] .bg-positive
+    background-color: $color-positive !important
+    background-color: var(--q-color-positive) !important
+
+.bg-positive
+    color: $color-positive-text
+    color: var(--color-positive-text)
+    
+.text-negative
+    color: $color-negative !important
+    color: var(--q-color-negative) !important
+
+[dir] .bg-negative
+    background-color: $color-negative !important
+    background-color: var(--q-color-negative) !important
+
+.bg-negative
+    color: $color-negative-text
+    color: var(--color-negative-text)
+    
+.text-info
+    color: $color-info !important
+    color: var(--q-color-info) !important
+
+[dir] .bg-info
+    background-color: $color-info !important
+    background-color: var(--q-color-info) !important
+
+.bg-info
+    color: $color-info-text
+    color: var(--color-info-text)
+    
+.text-warning
+    color: $color-warning !important
+    color: var(--q-color-warning) !important
+
+[dir] .bg-warning
+    background-color: $color-warning !important
+    background-color: var(--q-color-warning) !important
+
+.bg-warning
+    color: $color-warning-text
+    color: var(--color-warning-text)
+
+// -- tints and shades --
+
+[dir] BODY.body--light .bg-back-shade-60
+    background-color: $color-back-shade-60-light !important
+    background-color: var(--color-back-shade-60-light) !important
+[dir] BODY.body--dark .bg-back-shade-60
+    background-color: $color-back-shade-60-dark !important
+    background-color: var(--color-back-shade-60-dark) !important
+
+BODY.body--light .bg-back-shade-60
+    @extend #{text-styles($color-back-shade-60-light)}
+BODY.body--dark .bg-back-shade-60
+    @extend #{text-styles($color-back-shade-60-dark)}
+
+// -- default variable colors
+
+\:root
+    --q-color-primary: #{$color-primary}
+    --q-color-secondary: #{$color-secondary}
+    --q-color-accent: #{$color-accent}
+    --q-color-positive: #{$color-positive}
+    --q-color-negative: #{$color-negative}
+    --q-color-info: #{$color-info}
+    --q-color-warning: #{$color-warning}
+    --q-color-dark: #{$color-dark}
+    
+    --color-primary-text: #{$color-primary-text}
+    --color-secondary-text: #{$color-secondary-text}
+    --color-accent-text: #{$color-accent-text}
+    --color-positive-text: #{$color-positive-text}
+    --color-negative-text: #{$color-negative-text}
+    --color-info-text: #{$color-info-text}
+    --color-warning-text: #{$color-warning-text}
+    --color-dark-text: #{$color-dark-text}
+
+    --color-back-shade-60-light: #{$color-back-shade-60-light}
+    --color-back-shade-60-dark: #{$color-back-shade-60-dark}

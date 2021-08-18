@@ -19,7 +19,7 @@ export function init(vueComponents:{name:string,value:Vue.Component}[]) {
 		}
 	}
 
-	const app : Vue.App<Element> = Vue.createApp(rootLayout!);
+	const app : Vue.App<Element> = Vue.createApp(rootLayout!, {useQuasar:Quasar.useQuasar});
 	{
 		const global = (window as Record<string,any>);
 		if('__VUE_DEVTOOLS_GLOBAL_HOOK__' in global) {

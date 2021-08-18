@@ -14,15 +14,15 @@ DIV.q-list.page-select {
 
 <template>
     <q-layout class="full-height" view="hHh LpR fFf">
-        <q-header elevated class="bg-primary text-white">
+        <q-header elevated class="bg-primary">
             <q-toolbar>
                 <q-btn dense flat round icon="menu" @click="leftDrawerOpen=!leftDrawerOpen" />
                 <q-toolbar-title>Heather Anderson</q-toolbar-title>
             </q-toolbar>
         </q-header>
 
-        <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-            <q-list class="page-select q-pt-md non-selectable">
+        <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered class="column no-wrap justify-start items-stretch">
+            <q-list class="col page-select q-pt-md non-selectable">
                 <q-item :clickable="currentPage!='main'" v-ripple @click.stop="currentPage='main'">
                     <q-item-section :class="currentPage=='main'?'text-primary':''">Main Page</q-item-section>
                 </q-item>
@@ -36,6 +36,10 @@ DIV.q-list.page-select {
                     <q-item-section :class="currentPage=='teamwork'?'text-primary':''">TeamWork</q-item-section>
                 </q-item>
             </q-list>
+            <div class="col-auto q-pa-md">
+                <span v-if="isDark" class="cursor-pointer" @click="toggleDark()">[Light Mode]</span>
+                <span v-else class="cursor-pointer" @click="toggleDark()">[Dark Mode]</span>
+            </div>
         </q-drawer>
 
         <q-page-container class="full-height scroll">
@@ -45,14 +49,14 @@ DIV.q-list.page-select {
             <main-page v-else />
         </q-page-container>
 
-        <q-footer bordered class="bg-grey-8 text-white layout-footer">
+        <q-footer bordered class="bg-back-shade-60 layout-footer">
             Site last updated __UPDATE_TIME__
         </q-footer>
     </q-layout>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, Ref, ref, watch } from 'vue';
+import { computed, defineComponent, onMounted, onUnmounted, Ref, ref, toRef, watch } from 'vue';
 
 function pageChangeSetup() : Ref<string> {
     const currentHash = () : string => {
@@ -90,10 +94,17 @@ function pageChangeSetup() : Ref<string> {
 }
 
 export default defineComponent({
-    setup () {
+    props: {
+        useQuasar: { type:Function, required:true },
+    },
+    setup (props) {
+        const quasar = props.useQuasar();
+
         return {
             leftDrawerOpen: ref(false),
             currentPage: pageChangeSetup(),
+            isDark: computed<boolean>(() => quasar.dark.isActive ),
+            toggleDark: () => { quasar.dark.toggle(); },
         };
     },
 });
