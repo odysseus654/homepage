@@ -8,13 +8,13 @@ P {
 .project DIV.q-card__section {
     padding: 8px;
 }
-DIV.text-h5 {
-    display: inline-block;
-}
 SPAN.date {
     display: inline-block;
     font-style: italic;
     padding-left: 8px;
+}
+A.img-link {
+    color: transparent;
 }
 </style>
 
@@ -28,77 +28,65 @@ SPAN.date {
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">athenamesh</div>
+                <span class="text-h5">node-win32ole</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/node-win32ole" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
+                <span class="date">(2016-2021)</span>
             </q-card-section>
             <q-card-section>
                 <p><b>The Problem:</b> 
-                </p>
+                I needed to have a <a href="https://nodejs.org/en/" target="_blank">Node.js</a> application communicate with a
+                <a href="https://en.wikipedia.org/wiki/Component_Object_Model" target="_blank">COM</a> application.  A survey showed
+                very few possibilities outside of a library that was out-of-date and very incomplete.</p>
                 <p><b>The Solution:</b> 
-                </p>
+                I forked the library and effectively rewrote it, from <a href="https://github.com/nodejs/nan" target="_blank">NAN</a>
+                (which breaks with almost every new version of Node.js) to the newer
+                <a href="https://nodejs.org/api/n-api.html" target="_blank">Node-API</a> (which abstracts internal Node.js components
+                and attempts to maintain <a href="https://en.wikipedia.org/wiki/Application_binary_interface" target="_blank">ABI</a> compatibility).
+                Along the way I used my knowledge of how COM works to clean up and solidify the codebase.</p>
                 <p><b>2021 Status:</b> 
-                </p>
+                This was a required component for the version of the product I was working on with my last job and it seemed to work
+                very solidly for what I needed it to do (I don't think I ever saw it crash once it left testing).  I did get permission
+                to release my work product as open-source and I'm hoping this is useful to others.</p>
             </q-card-section>
         </q-card>
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">node-win32ole</div>
+                <span class="text-h5">athenamesh</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/athenamesh" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
+                <span class="date">(2020)</span>
             </q-card-section>
             <q-card-section>
-                <p><b>The Problem:</b> 
-                </p>
+                <p><b>The Problem: </b> 
+                <a href="https://vircadia.com/" target="_blank">Vircadia</a> (previously known as "Project Athena") is an open-source fork of
+                <a href="https://web.archive.org/web/20170603211157/https://highfidelity.com/" target="_blank">High Fidelity</a> that gained
+                increasing traction when High Fidelity shut down.  The intent was to have a fully-distributed virtual world with no single
+                point of control.  However the "metaverse servers" that connected worlds together and permitted users to easily traverse them
+                has always been centralized.</p>
                 <p><b>The Solution:</b> 
-                </p>
+                My original intent was to find some form of <a href="https://www.consul.io/" target="_blank">Consul</a> or similar technology
+                that could be deployed on every virtual world, where each operator of a virtual world could determine which "metaverse"
+                they belonged to and each world had equal knowledge of all the others.  In the end this came down to
+                <a href="https://tendermint.com/" target="_blank">Tendermint</a>, a blockchain-based system written in Go.</p>
                 <p><b>2021 Status:</b> 
-                </p>
+                I have most of the code written for a basic Tendermint-based metaverse server but not a strong idea of how it will be used
+                by the virtual worlds it coordinates.  Others have written centralized services (High Fidelity did not realease their code here)
+                and I'm willing to table this project for the time being, perhaps using someone else's API for creating a distributed version
+                of a previously-centralized service.  We'll see where it leads, I'm not the only person involved in the direction this goes.</p>
             </q-card-section>
         </q-card>
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">pydsn</div>
-            </q-card-section>
-            <q-card-section>
-                <p><b>The Problem:</b> 
-                </p>
-                <p><b>The Solution:</b> 
-                </p>
-                <p><b>2021 Status:</b> 
-                </p>
-            </q-card-section>
-        </q-card>
-
-        <q-card class="project q-ma-md">
-            <q-card-section>
-                <div class="text-h5">mod-hpsdr</div>
-            </q-card-section>
-            <q-card-section>
-                <p><b>The Problem:</b> 
-                </p>
-                <p><b>The Solution:</b> 
-                </p>
-                <p><b>2021 Status:</b> 
-                </p>
-            </q-card-section>
-        </q-card>
-
-        <q-card class="project q-ma-md">
-            <q-card-section>
-                <div class="text-h5">amtest</div>
-            </q-card-section>
-            <q-card-section>
-                <p><b>The Problem:</b> 
-                </p>
-                <p><b>The Solution:</b> 
-                </p>
-                <p><b>2021 Status:</b> 
-                </p>
-            </q-card-section>
-        </q-card>
-
-        <q-card class="project q-ma-md">
-            <q-card-section>
-                <div class="text-h5">SuperMake</div>
+                <span class="text-h5">SuperMake</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/supermake" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
+                <span class="date">(2011-2016)</span>
             </q-card-section>
             <q-card-section>
                 <p><b>The Problem:</b> 
@@ -114,12 +102,96 @@ SPAN.date {
                 <p><b>2010 Status:</b> 
                 In-progress, working off and on. I have a short term goal that I need something like this for in the next couple months anyhow,
                 so that's a pretty good driver to keep my focus on this.</p>
+                <p><b>2021 Status:</b> 
+                I'm still using the scripts here with very minor modifications.  The project is still very unfinished and I don't know if I'm going to get much
+                farther in its current state.  The concept still feels <i>very</i> intriguing to me, almost like ensuring a service is operating properly
+                by continuously <a href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation" target="_blank">solving the Schrödinger equation</a>.
+                I'm not convinced that python is the best way to do this though.  I've done some exploration translating the code into Go (which benefits
+                from improved multithreading and stronger object typing) but I don't have a strong vision for this yet.  Especially when dealing with tasks
+                requiring cooperation with multiple servers, perhaps it should be a blockchain app to benefit from being a distributed application?</p>
             </q-card-section>
         </q-card>
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">AutoSlate Extractor</div>
+                <span class="text-h5">pydsn</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/pydsn" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
+                <span class="date">(2014-2015)</span>
+            </q-card-section>
+            <q-card-section>
+                <p><b>The Problem:</b> 
+                For a while I was very interested in the <a href="https://eyes.nasa.gov/dsn/dsn.html" target="_blank">Deep Space Network</a>,
+                a collection of radio transcievers located around the world for communicating with the various exploration satellites we may
+                have running at any time.  There was a lot of potential meaning here, from the satellites they were communicating with to
+                the protocols they were using to the calibration procedures they used (usually involving quasars)</p>
+                <p><b>The Solution:</b> 
+                I did create a server monitoring job to periodically query the current DSN status, parse as much information as I could figure
+                out from it, and store the results in a mysql database.  My intent was to potentially combine this with satellite location
+                tracking data, looking at the communication history of that satelite, and potentially write an Android app for viewing it.</p>
+                <p><b>2021 Status:</b> 
+                I collected data into a mysql database for a while but ended up shutting it down as I lost interest.  Having unattended
+                repeated queries to an external website is not something I feel comfortable about unless I know it's useful and not malfunctioning.</p>
+            </q-card-section>
+        </q-card>
+
+        <q-card class="project q-ma-md">
+            <q-card-section>
+                <span class="text-h5">mod-hpsdr</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/modHpsdr" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
+                <span class="date">(2013-2014)</span>
+            </q-card-section>
+            <q-card-section>
+                <p><b>The Problem:</b> 
+                I was building an <a href="https://openhpsdr.org/" target="_blank">HPSDR</a> software-defined amateur radio and was interested in what
+                I could do with it, to effectively build my own radio
+                in software and customize how it behaved.  Most of the offerings up to this point looked like the software equivalent of the front plate
+                of a ham radio with all the knobs, good for amateur radio operators used to a high-powered set but less useful for someone wanting to
+                explore the frequencies and radio structure.  I saw solutions like <a href="https://wiki.gnuradio.org/index.php/Main_Page" target="_blank">
+                GNU Radio Companion</a> and wanted to know if I could create something similar, assembling and re-assembling a radio from its components.</p>
+                <p><b>The Solution:</b> 
+                I wrote a number of C++ DLL files that each expose an interface that describes what each one does, its required inputs and outputs, and
+                their datatypes.  I also wrote a C# orchestrator that would discover and query each of the installed modules, permit the outputs of one
+                to be linked to the inputs of another (in many cases stepping directly from one c++ module to another without passing through C#), and 
+                allowing the modules to display the results within the window.</p>
+                <p><b>2021 Status:</b> 
+                I remember writing a module for querying the HPSDR radio, setting up a frequency block, and streaming in 
+                <a href="http://whiteboard.ping.se/SDR/IQ" target="_blank">IQ radio data</a>.  I also wrote a
+                wrapper around an open-source <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform" target="_blank">FFT</a> library and one that
+                would display a <a href="https://ham.stackexchange.com/questions/889/what-is-a-waterfall-display" target="_blank">waterfall</a> using
+                DirectX <a href="https://en.wikipedia.org/wiki/Shader" target="_blank">shaders</a>.  I likely stopped work on this
+                as I lost interest in HPSDR (and/or the netbook I was working on showed enough of its age that it became frustrating to work with).</p>
+            </q-card-section>
+        </q-card>
+
+        <q-card class="project q-ma-md">
+            <q-card-section>
+                <span class="text-h5">amtest</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/amtest" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
+                <span class="date">(2012)</span>
+            </q-card-section>
+            <q-card-section>
+                <p><b>The Problem:</b> 
+                At the time I was studying for taking a test required to receive an amateur radio "extra class" license.  All the possible test questions and
+                answers are generally <a href="http://www.ncvec.org/page.php?id=338" target="_blank">made public</a> and I wanted a site that I could test myself with.
+                There were other websites out there that gave sample tests, but for some reason they weren't acceptible to me at this time.</p>
+                <p><b>The Solution:</b> 
+                This was a pure-javascript solution that runs purely inside the browser, where all the questions can be selected in random order with shuffled
+                answers.  Any diagrams required for the questions were converted to SVG and also embedded within the Javascript.</p>
+                <p><b>2021 Status:</b> 
+                It worked well for the time I needed it.  The test questions are changed every few years so this is likely badly out-of-date by now, but
+                the program <a href="http://brains.odysseus.anderson.name/amtest/" target="_blank">is still available</a> if you want to take a look at it.</p>
+            </q-card-section>
+        </q-card>
+
+        <q-card class="project q-ma-md">
+            <q-card-section>
+                <span class="text-h5">AutoSlate Extractor</span>
                 <span class="date">(2010)</span>
             </q-card-section>
             <q-card-section>
@@ -141,7 +213,7 @@ SPAN.date {
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">Evochron Workaround</div>
+                <span class="text-h5">Evochron Workaround</span>
                 <span class="date">(2009)</span>
             </q-card-section>
             <q-card-section>
@@ -164,7 +236,10 @@ SPAN.date {
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">EC2 Service Console</div>
+                <span class="text-h5">EC2 Service Console</span>
+                <a class="img-link q-pl-sm" href="https://github.com/odysseus654/ec2servconsole" target="_blank">
+                    <q-icon color="primary" size="24px" name="fab fa-github" />
+                </a>
                 <span class="date">(2008-2009)</span>
             </q-card-section>
             <q-card-section>
@@ -191,7 +266,7 @@ SPAN.date {
 
         <q-card class="project q-ma-md">
             <q-card-section>
-                <div class="text-h5">Second Life Events Board</div>
+                <span class="text-h5">Second Life Events Board</span>
                 <span class="date">(2006-2008)</span>
             </q-card-section>
             <q-card-section>
