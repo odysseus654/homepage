@@ -31,7 +31,24 @@ SPAN.date {
                 <span class="date">(2012-)</span>
             </q-card-section>
             <q-card-section>
-                text
+                <p>
+                    As stated elsewhere I have been generally interested in space exploration games much of my life, although over time I have
+                    gotten disillusioned by single-player games and have wanted to find one I could find a community in.  When
+                    <a href="https://www.kickstarter.com/projects/cig/star-citizen" target="_blank">the Kickstarter</a> went live in 2012 I did
+                    jump into it and was involved for a couple years, however over time (and with increasing calls of it being a "scam") I
+                    stopped focusing on the project; my thinking was that (like any kickstarter) if it comes out to something wonderful then
+                    great, but if not I wasn't going to regret the money I had put into it.
+                </p>
+                <p>
+                    I started focusing it more early in 2020 and realizing there was a lot more content available since the "Hanger Module"
+                    first was released when I was last active and that its development had picked up significantly within the last couple years.
+                    I did start both get more involved in the community (joining an organization) as well as contributing more money to it.
+                </p>
+                <p>
+                    I am still interested in following the progress, however I'm starting to wonder if I may have reached the limits of the
+                    current offerings.  I still want to be involved but I can see myself pulling back a bit and returning later to see
+                    what else has been done.
+                </p>
             </q-card-section>
         </q-card>
 
@@ -41,7 +58,36 @@ SPAN.date {
                 <span class="date">(2018-)</span>
             </q-card-section>
             <q-card-section>
-                text
+                <p>
+                    In my mind Second Life started going downhill when it's creative heads ended up being replaced by people more interested
+                    in managing the money and income aspects of the project.  At the time I heard that the original group had migrated to a project named
+                    <a href="https://web.archive.org/web/20170603211157/https://highfidelity.com/" target="_blank">High Fidelity</a>, a
+                    virtual world built on a rethought engine.  I was incredibly interested but my computer at the time
+                    wasn't strong enough to log into the system (although I did try).
+                    Unfortunately shortly after I got a new computer and began to get involved they
+                    <a href="https://web.archive.org/web/20200808205112/https://www.highfidelity.com/blog/updates-and-a-new-beginning" target="_blank">
+                    started effectively shutting down</a>.  Much of their stuff was open-source and a number of us made backup copies of what we
+                    could reach before things started disappearing and saving what we could of the worlds they had.  The open-source fork
+                    with the most people I found in-world was initially called "Project Athena" but was eventually renamed to "Vircadia".
+                </p>
+                <p>
+                    My strongest attraction to this (especially compared to Second Life) is that the assumptions in the engine are different
+                    enough to allow much more flexible constructions.  In addition, with the code being open-source I have the ability to add
+                    the needed capabilities to support the builds I wish to do.  I have
+                    <a href="https://github.com/vircadia/vircadia/pulls?q=+is%3Apr+author%3A%40me+" target="_blank">a number of contributions</a>
+                    to the project, including writing scripts to create <a href="https://en.wikipedia.org/wiki/Deb_%28file_format%29" target="_blank">
+                    .DEB</a> and <a href="https://en.wikipedia.org/wiki/RPM_Package_Manager" target="_blank">.RPM</a> packages of the servers as well
+                    as a number of bugfixes.
+                    I have a number of larger projects I am either planning or have been working on, such as reorganizing the code to replace
+                    the scripting engine in use, cleaning up the networking protocol to permit negotiations, and increasing the maximum size
+                    of the worlds the system can handle.
+                </p>
+                <p>
+                    I think my biggest concerns with Vircadia at this point is that in the end it is just an engine, and while there are a small
+                    group of users and creators, it doesn't have a large community or many assets beyond those that carried over from High Fidelity.
+                    Any work that I do here needs to be for its own benefit or for the ability for me to create what I want for myself, without
+                    expectation of anything bigger.
+                </p>
             </q-card-section>
         </q-card>
 
@@ -51,7 +97,18 @@ SPAN.date {
                 <span class="date">(2019-2021)</span>
             </q-card-section>
             <q-card-section>
-                text
+                <p>
+                    I have been interested in space exploration games for much of my life.  I had put off looking at Elite: Dangerous for years
+                    though, thinking its focus was a little too much on fighting for my taste.  When I ended up trying it out though I found
+                    a rather comprehensive galaxy simulator that I enjoyed for quite some time, exploring to see what was available and going
+                    for months into "the Black" trying to reach the center of the galaxy.
+                </p>
+                <p>
+                    I did end up putting this down for a bit and focusing on other things, but didn't have a strong reason to.  I keep thinking
+                    that I might return to this and see what more I can get out of it, but their recent botched release of "Odyssey" and the
+                    resulting turmoil in the community is something keeping me away until things calm down enough for me to decide whether it's
+                    worth trying again.
+                </p>
             </q-card-section>
         </q-card>
 
@@ -61,7 +118,26 @@ SPAN.date {
                 <span class="date">(2016-2018)</span>
             </q-card-section>
             <q-card-section>
-                text
+                <p>
+                    InWorldz was a virtual world based on the same technology of Second Life (using the same client program, but with an open-source
+                    server replacement).  The first time I seriously logged in I found I had apparently created an account several years prior.
+                    I found a world with a significant number of assets, something built up that could actually be considered a "world"
+                    rather than an empty holodeck waiting for creators.  The low land prices combined with the operator's promise to protect 
+                    creator rights felt like there was potential for building where Second Life lacked, for creating worlds where creativity could
+                    flourish without worrying where the next paycheck came from.
+                </p>
+                <p>
+                    It feels to me that a virtual world requires three pieces to be successful: a stable software platform that grants the abilities
+                    and flexibility to easily create the world, a collection of assets built up over the years by generations of creators, and a
+                    stable community of people in and supporting the world.  InWorldz had the first two and the capability of the third but... while
+                    I was there I was often the only one logged into the servers at the time.
+                </p>
+                <p>
+                    InWorldz disappeared when a billing dispute rose between the operator and PayPal and the servers hosting the content were deleted.
+                    There have been a number of other "grids" attempting to recapture what InWorldz had but they didn't have the time needed
+                    to build up the content and had enough internal conflicts as to make a stable environment difficult to maintain.  Along with
+                    increasing frustration with the lack of capabilities on an aging platform, I haven't been interested in looking for a replacement.
+                </p>
             </q-card-section>
         </q-card>
 
@@ -72,16 +148,17 @@ SPAN.date {
             </q-card-section>
             <q-card-section>
                 <p>
-                    I had been curious about amateur radio for a number of years (there was someone with a radio that would go to a science-fiction
+                    I had been curious about amateur radio for a number of years (there was someone with a radio at a science-fiction
                     group I was a part of) but for a long time I didn't really know how to "get into" the program.  Eventually I found a group and
                     figured out how to get my license.  I was easily known in the group for my computer knowledge, and while much of that did crossover
                     into knowing how radios work a lot of it didn't; I remember being frustrated trying to figure out what a "power supply" was,
-                    the closest answer I got was instructions from one person on how to build one from a microwave oven.
+                    one person responded by handing me instructions on how to build one from a microwave oven.
                 </p>
                 <p>
                     I quickly realized that once I had a license, the best way to actually make use of it was to join an ECOMM (Emergency Communications)
                     group.  These groups consisted of amateur radio operators working with the local police, sheriff, Red Cross, or other agency
-                    to both provide communication during events and train for helping out in disasters.  I did help out a number of years with
+                    to both provide communication during events and train for <a href="https://training.fema.gov/is/courseoverview.aspx?code=IS-100.c" target="_blank">
+                    helping out in disasters</a>.  I did help out a number of years with
                     <a href="https://skitosea.com/" target="_blank">SkiToSea</a>, in a number of races, and events that required coordination of cars
                     and people.
                 </p>
@@ -96,7 +173,19 @@ SPAN.date {
                     project.
                 </p>
                 <p>
-
+                    My view of the amateur radio community is of a group struggling to figure out what their purpose is.  In the past it was
+                    the forefront of radio design and development, but since then so many patents have been taken out that any radio using
+                    modern techniques such as trunking or digitial encoding would be restricted against most forms of "tinkering". Our society has
+                    also moved on; the once-strange idea of communicating with someone on the other side of the world can be done today by nearly
+                    anyone without thinking, and the mantra of "when all else fails" doesn't work when society doesn't know to turn to amateur radio
+                    operators when things stop working (and the limitations of amateur radios made handling emergencies difficult).  In the end,
+                    radio operators find themselves either in their own relatively exclusive chat room or as volunteers in an organization using
+                    more capable radios.
+                </p>
+                <p>
+                    I did eventually leave the community for a couple of different reasons, most of them social.  The ECOMM groups are all allied with
+                    law enforcement in some way and I was not and could likely never have interest in being an officer.  That and the typical age 
+                    of a radio operator made it more difficult to be part of that group with some of the personal issues I have been going through.
                 </p>
             </q-card-section>
         </q-card>
