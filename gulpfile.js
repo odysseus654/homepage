@@ -160,7 +160,7 @@ function webpackTask(cb) {
             if(baseName) return baseName[1];
             return this.file.relative;
         }))
-        .pipe(replace('__UPDATE_TIME__', (new Date()).toString()))
+        .pipe(replace('__UPDATE_TIME__', Date.now()))
         .pipe(Sourcemaps.init({loadMaps:true}))
         .pipe(Through.obj(function(file,enc,cb) {
             // Dont pipe through any source map files as it will be handled

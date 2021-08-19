@@ -5,7 +5,7 @@
 </style>
 
 <template>
-    <q-page class="q-px-md">
+    <div class="q-px-md">
         <h3>Welcome to my Homepage</h3>
         <p>
             Back when I was in school and the Internet was new everyone needed their own homepage, and so did I.
@@ -29,5 +29,5 @@
                 <q-icon class="q-pa-sm" color="primary" size="96px" name="fab fa-github" />
             </a>
         </p>
-    </q-page>
+    </div>
 </template>

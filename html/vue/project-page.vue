@@ -19,14 +19,14 @@ A.img-link {
 </style>
 
 <template>
-    <q-page class="q-px-md column no-wrap justify-start items-stretch">
+    <div class="q-px-md column no-wrap justify-start items-stretch">
         <h3>Projects</h3>
         <p>
             This is a semi-random collection of projects I started and (more rarely) finished.  A lot of these were
             scoured from old hard drives and previous versions of this homepage.
         </p>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-win32ole" ref="projects-win32ole">
             <q-card-section>
                 <span class="text-h5">node-win32ole</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/node-win32ole" target="_blank">
@@ -52,7 +52,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-athenamesh" ref="projects-athenamesh">
             <q-card-section>
                 <span class="text-h5">athenamesh</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/athenamesh" target="_blank">
@@ -80,7 +80,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-supermake" ref="projects-supermake">
             <q-card-section>
                 <span class="text-h5">SuperMake</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/supermake" target="_blank">
@@ -112,7 +112,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-pydsn" ref="projects-pydsn">
             <q-card-section>
                 <span class="text-h5">pydsn</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/pydsn" target="_blank">
@@ -136,7 +136,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-hpsdr" ref="projects-hpsdr">
             <q-card-section>
                 <span class="text-h5">mod-hpsdr</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/modHpsdr" target="_blank">
@@ -167,7 +167,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-amtest" ref="projects-amtest">
             <q-card-section>
                 <span class="text-h5">amtest</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/amtest" target="_blank">
@@ -189,7 +189,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-autoslate" ref="projects-autoslate">
             <q-card-section>
                 <span class="text-h5">AutoSlate Extractor</span>
                 <span class="date">(2010)</span>
@@ -211,7 +211,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-evochron" ref="projects-evochron">
             <q-card-section>
                 <span class="text-h5">Evochron Workaround</span>
                 <span class="date">(2009)</span>
@@ -234,7 +234,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-ec2servconsole" ref="projects-ec2servconsole">
             <q-card-section>
                 <span class="text-h5">EC2 Service Console</span>
                 <a class="img-link q-pl-sm" href="https://github.com/odysseus654/ec2servconsole" target="_blank">
@@ -264,7 +264,7 @@ A.img-link {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="projects-events" ref="projects-events">
             <q-card-section>
                 <span class="text-h5">Second Life Events Board</span>
                 <span class="date">(2006-2008)</span>
@@ -285,5 +285,5 @@ A.img-link {
                 and the effort involved exceeded the value in having it.</p>
             </q-card-section>
         </q-card>
-    </q-page>
+    </div>
 </template>

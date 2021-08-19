@@ -19,13 +19,13 @@ SPAN.date {
 </style>
 
 <template>
-    <q-page class="q-px-md column no-wrap justify-start items-stretch">
+    <div class="q-px-md column no-wrap justify-start items-stretch">
         <h3>Interests</h3>
         <p>
             A loose collection of interests I've had over the years
         </p>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-sc" ref="interests-sc">
             <q-card-section>
                 <div class="text-h5"><a href="https://robertsspaceindustries.com/" target="_blank">Star Citizen</a></div>
                 <span class="date">(2012-)</span>
@@ -52,7 +52,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-vircadia" ref="interests-vircadia">
             <q-card-section>
                 <div class="text-h5"><a href="https://vircadia.com/" target="_blank">Vircadia</a></div>
                 <span class="date">(2018-)</span>
@@ -91,7 +91,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-ed" ref="interests-ed">
             <q-card-section>
                 <div class="text-h5"><a href="https://www.elitedangerous.com/" target="_blank">Elite: Dangerous</a></div>
                 <span class="date">(2019-2021)</span>
@@ -112,7 +112,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-iw" ref="interests-iw">
             <q-card-section>
                 <div class="text-h5"><a href="https://web.archive.org/web/20180805103536/https://inworldz.com/" target="_blank">InWorldz</a></div>
                 <span class="date">(2016-2018)</span>
@@ -141,7 +141,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-ham" ref="interests-ham">
             <q-card-section>
                 <div class="text-h5">Amateur Radio</div>
                 <span class="date">(2008-2018)</span>
@@ -190,7 +190,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-sl" ref="interests-sl">
             <q-card-section>
                 <div class="text-h5"><a href="https://secondlife.com/" target="_blank">Second Life</a></div>
                 <span class="date">(2006-2008)</span>
@@ -227,7 +227,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="interests-cyan" ref="interests-cyan">
             <q-card-section>
                 <div class="text-h5"><a href="https://cyan.com/" target="_blank">Cyan Worlds</a></div>
                 <span class="date">(circa 1998-2006)</span>
@@ -254,5 +254,5 @@ SPAN.date {
                 </p>
             </q-card-section>
         </q-card>
-    </q-page>
+    </div>
 </template>

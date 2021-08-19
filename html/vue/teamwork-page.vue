@@ -19,36 +19,36 @@ SPAN.date {
 </style>
 
 <template>
-    <q-page class="q-px-md column no-wrap justify-start items-stretch">
+    <div class="q-px-md column no-wrap justify-start items-stretch">
         <h3>The TeamWork Group, Inc.</h3>
         <p>
             An overview of the work I did while I was at The TeamWork Group, Inc.
         </p>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="teamwork-begin" ref="teamwork-begin">
             <q-card-section>
                 <div class="text-h5">The Beginning</div>
                 <span class="date">(1999-2008)</span>
             </q-card-section>
             <q-card-section>
                 <p>
-                    I was originally hired to create <a href="https://www.crystalreports.com/" target="_blank">Crystal Reports</a>, something that I had no knowledge
-                    or experience with and was initially worried was a job I wasn't a good fit for.  After a month or two though I did start feeling more comfortable
-                    about what the company was about and how I could contribute to it and started to push for more developer access.  At the time the product was a
-                    <a href="https://www.sap.com/products/sql-anywhere.html" target="_blank">Sybase</a> database engine on a central machine in a local network with a collection
-                    of Windows executables on workstations that would connect to it.  In 2001 I started using <a href="https://nongnu.org/cvs/" target="_blank">CVS</a>
+                    I was originally hired to create <a href="https://www.crystalreports.com/" target="_blank">Crystal Reports</a>.
+                    After a month or two I started feeling more comfortable about what the company was about and how I could contribute to it and started to push
+                    for developer access.  At the time the product was a <a href="https://www.sap.com/products/sql-anywhere.html" target="_blank">Sybase</a>
+                    database engine on a central machine in a local network with a collection of Windows executables on workstations that would connect to it.
+                    In 2001 I started using <a href="https://nongnu.org/cvs/" target="_blank">CVS</a>
                     (and later <a href="https://subversion.apache.org/" target="_blank">SVN</a>) to keep track of the .zip files I was getting from the primary developer,
                     to track code changes and my contributions to it (I kinda figure that it had value to me even if I was the only one using it).
                 </p>
                 <p>
-                    The feedback I was getting from my boss regarding the changes I was making to our product was generally positive; there had apparently previously been much
-                    frustration that one bugfix would create three others while the changes I made were relatively stable even before any testing occurred. Over time
-                    more responsibility for developing and maintaining the codebase migrated to me, the previous primary developer left the company in 2007.
+                    The feedback I was getting from my boss regarding the changes I was making to our product was generally positive;
+                    they were relatively stable even before any testing occurred.
+                    Over time more responsibility for developing and maintaining the codebase migrated to me and I became primary developer in 2007.
                 </p>
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="teamwork-ng" ref="teamwork-ng">
             <q-card-section>
                 <div class="text-h5">Core Rewrite</div>
                 <span class="date">(2003-2014)</span>
@@ -132,7 +132,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="teamwork-ie" ref="teamwork-ie">
             <q-card-section>
                 <div class="text-h5">Moving to the Internet</div>
                 <span class="date">(2003-2021)</span>
@@ -178,7 +178,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="teamwork-red" ref="teamwork-red">
             <q-card-section>
                 <div class="text-h5">Hosted Service</div>
                 <span class="date">(2008-2017)</span>
@@ -200,7 +200,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="teamwork-aws" ref="teamwork-aws">
             <q-card-section>
                 <div class="text-h5">Amazon Web Services</div>
                 <span class="date">(2017-2021)</span>
@@ -251,7 +251,7 @@ SPAN.date {
             </q-card-section>
         </q-card>
 
-        <q-card class="project q-ma-md">
+        <q-card class="project q-ma-md" id="teamwork-tulsa" ref="teamwork-tulsa">
             <q-card-section>
                 <div class="text-h5">The Next Version</div>
                 <span class="date">(2020-2021)</span>
@@ -309,5 +309,5 @@ SPAN.date {
                 </p>
             </q-card-section>
         </q-card>
-    </q-page>
+    </div>
 </template>
